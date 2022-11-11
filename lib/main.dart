@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Home Page'),
+          title: const Text('首頁'),
           backgroundColor: Colors.green,
         ),
         body: HomePage(),
@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
       crossAxisCount: 2,
       children: <Widget>[
         TextButton(
-          child: const Icon(Icons.videogame_asset),
+          child: const Icon(Icons.videogame_asset ,size:100),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => const BPage())
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
           },
         ),
         ElevatedButton(
-          child: const Icon(Icons.menu_book),
+          child: const Icon(Icons.menu_book ,size:100),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => CPage())
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
           },
         ),
         OutlinedButton(
-          child: const Icon(Icons.image),
+          child: const Icon(Icons.image ,size:100),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => DPage())
@@ -57,17 +57,12 @@ class HomePage extends StatelessWidget {
           },
         ),
         TextButton(
-          child: const Icon(Icons.videogame_asset),
+          child: const Icon(Icons.book ,size:100),
           onPressed: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => EPage())
             );
           },
-        ),
-        const Expanded(
-          child: FittedBox(
-            child: FlutterLogo(),
-          ),
         ),
       ],
 

@@ -50,72 +50,71 @@ class _BackgroundImgDemoState extends State<BackgroundImgDemo> {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(
-            "$imgUrl1$count",
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              "$imgUrl1$count",
+            ),
           ),
         ),
-      ),
-      child: Container(
-        margin: const EdgeInsets.only(top: 600.0),
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-        const SizedBox(height: 30),
-        const SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                    Colors.blue),
-                foregroundColor: MaterialStateProperty.all(
-                    Colors.yellow),
-              ),
-            child: const Text("上一頁"),
-            onPressed: () async {
-              setState(() {
-                count++;
-              });
-            },
-          ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                    Colors.blue),
-                foregroundColor: MaterialStateProperty.all(
-                    Colors.yellow),
-              ),
-              child: const Text("回首頁"),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => HomePage())
-                );
-              },
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                    Colors.yellow),
-                foregroundColor: MaterialStateProperty.all(
-                    Colors.black),
-              ),
-              child: const Text("下一頁"),
-              onPressed: () async {
-                setState(() {
-                  count--;
-                });
-              },
+        child: Container(
+            margin: const EdgeInsets.only(top: 600.0),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  const SizedBox(height: 30),
+                  const SizedBox(height: 10),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.blue),
+                            foregroundColor: MaterialStateProperty.all(
+                                Colors.yellow),
+                          ),
+                          child: const Text("上一頁"),
+                          onPressed: () async {
+                            setState(() {
+                              count++;
+                            });
+                          },
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.blue),
+                            foregroundColor: MaterialStateProperty.all(
+                                Colors.yellow),
+                          ),
+                          child: const Text("回首頁"),
+                          onPressed: () {
+                            Navigator.push(
+                                context, MaterialPageRoute(builder: (context) => HomePage())
+                            );
+                          },
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                Colors.yellow),
+                            foregroundColor: MaterialStateProperty.all(
+                                Colors.black),
+                          ),
+                          child: const Text("下一頁"),
+                          onPressed: () async {
+                            setState(() {
+                              count--;
+                            });
+                          },
+                        )
+                      ]
+                  ),
+                ]
             )
-      ]
-      ),
-      ]
-      )
-      )
+        )
     );
 
   }
 }
-

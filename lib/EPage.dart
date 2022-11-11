@@ -1,74 +1,85 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'DPage.dart';
-import 'CPage.dart';
-import 'BPage.dart';
 
 
-
-class EPage extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<EPage> {
-  //目前選擇頁索引值
-  int _currentIndex = 0; //預設值
-
-  final pages = [HomePage(), const BPage(), CPage(), DPage()];
-
+class EPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Drawer UI'),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            //設定用户名稱
-            const UserAccountsDrawerHeader(
-              accountName: Text("Kayi",),
-              //設定Email
-              accountEmail: Text("Kayi@gmail.com",),
-              //設定大頭照
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/1.jpg"),
-              ),
-            ),
-            //選單
-            ListTile(
-              leading: const CircleAvatar(child: Icon(Icons.chrome_reader_mode)),
-              title: const Text('動漫新作'),
-              onTap: () {
-                _onItemClick(0);
-              },
-            ),
-            ListTile(
-              leading: const CircleAvatar(child: Icon(Icons.code)),
-              title: const Text('遊戲畫面'),
-              onTap: () {
-                _onItemClick(1);
-              },
-            ),
-            ListTile(
-              leading: const CircleAvatar(child: Icon(Icons.computer)),
-              title: const Text('網路圖像'),
-              onTap: () {
-                _onItemClick(2);
-              },
-            ),
-          ],
-        ),
-      ),
-      body: pages[_currentIndex],
-    );
+    return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: const Text('模擬考時間表'),
+          ),
+          body: HomePage(),
+        ));
   }
+}
 
-  void _onItemClick(int index) {
-    setState(() {
-      _currentIndex = index;
-      Navigator.of(context).pop();
-    });
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Table(
+        columnWidths: const <int, TableColumnWidth>{
+          //指定索引及固定列宽
+          0: FixedColumnWidth(80.0),
+          1: FixedColumnWidth(150.0),
+          2: FixedColumnWidth(100.0),
+        },
+        //設定表格樣式
+        border: TableBorder.all(
+            color: Colors.black87, width: 2.0, style: BorderStyle.solid),
+        children: const <TableRow>[
+          TableRow(
+            children: <Widget>[
+              Text('考試名稱'),
+              Text('時間'),
+              Text('範圍'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('國文'),
+              Text('1/5  10:00~11:30'),
+              Text('高一全'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('作文'),
+              Text('1/5  13:00~14:30'),
+              Text('無'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('自然'),
+              Text('1/5  15:30~17:00'),
+              Text('高一全'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('數學'),
+              Text('1/6  10:00~11:30'),
+              Text('高一全'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('英文'),
+              Text('1/6  13:00~14:30'),
+              Text('無'),
+            ],
+          ),
+          TableRow(
+            children: <Widget>[
+              Text('社會'),
+              Text('1/6  15:30~17:00'),
+              Text('高一全'),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
