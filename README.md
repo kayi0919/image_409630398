@@ -1,5 +1,6 @@
 # image_409630398
 main.dart:  使用gridview排版 製作button連接各頁面  
+  
             以下各圖示連接各頁面  
             video game_asset 連接到BPage  
             menu_book       連接到CPage  
